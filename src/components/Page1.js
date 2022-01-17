@@ -1,11 +1,11 @@
 import React from 'react'
-import FormComponent from './FormComponent'
+import NewPostForm from './NewPostForm'
 
-const Page1 = ({darkMode, setDarkMode}) => {
+const Page1 = ({darkMode, setDarkMode, categories}) => {
     return (
         <div >
-            <h1 style={{color: darkMode? "white" : "black"}}>Page1</h1>
-            <FormComponent darkMode={darkMode} setDarkMode={setDarkMode} />
+            <h1 style={{color: darkMode? "white" : "black"}}>New Post</h1>
+            <NewPostForm categories={categories} darkMode={darkMode} setDarkMode={setDarkMode} />
         </div>
     )
 }

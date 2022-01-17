@@ -6,6 +6,7 @@ import Page3 from './Page3'
 
 const App = () => {
     const [darkMode, setDarkMode] = useState(true)
+    const [categories, setCategories] = useState(["Tech", "Sports", "Animals"])
 
     return (
         <Router>
@@ -16,9 +17,9 @@ const App = () => {
                     <Link style={{color: darkMode? "white" : "black"}} to="/page3">Page 3</Link>
                 </nav>
                 <button onClick={() => setDarkMode(!darkMode)}>darkMode</button>
-                <Route exact path="/page1" render={() => <Page1 darkMode={darkMode} setDarkMode={setDarkMode} /> } />
-                <Route exact path="/page2" render={() => <Page2 darkMode={darkMode} setDarkMode={setDarkMode} /> } />
-                <Route exact path="/page3" render={() => <Page3 darkMode={darkMode} setDarkMode={setDarkMode} /> } />
+                <Route exact path="/page1" render={() => <Page1 categories={categories} darkMode={darkMode} setDarkMode={setDarkMode} /> } />
+                <Route exact path="/page2" render={() => <Page2 categories={categories} darkMode={darkMode} setDarkMode={setDarkMode} /> } />
+                <Route exact path="/page3" render={() => <Page3 categories={categories} darkMode={darkMode} setDarkMode={setDarkMode} setCategories={setCategories} /> } />
             </div>
         </Router>
     )
