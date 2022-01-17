@@ -1,9 +1,11 @@
-import React from 'react'
+import React, {useContext} from 'react'
+import Context from '../context.js'
 
-const NewPostForm = ({darkMode, categories}) => {
+const NewPostForm = () => {
+    const {state, dispatch} = useContext(Context)
     return (
         <>
-            <form style={{color: darkMode ? "white" : "black"}}> 
+            <form style={{color: state.darkMode ? "white" : "black"}}> 
                 <fieldset>
                     <label>Title</label>
                     <input />
@@ -11,7 +13,7 @@ const NewPostForm = ({darkMode, categories}) => {
                 <fieldset>
                     <label>Category</label>
                     <select>
-                        {categories.map((category, index) => (
+                        {state.categories.map((category, index) => (
                             <option key={index} value="category">{category}</option>
                         ))}
                     </select>

@@ -1,15 +1,16 @@
-import React, {useState} from 'react'
+import React, {useState, useContext} from 'react'
+import Context from '../context.js'
 
-const NewCategoryForm = ({darkMode, setCategories, categories}) => {
+const NewCategoryForm = () => {
+    const {state, dispatch} = useContext(Context)
     const [category, setCategory] = useState("")
     const handleSubmit = e => {
         e.preventDefault()
-        setCategories([...categories, category])
-
+        dispatch({type: "addCategory" , value: category })
     }
     return (
         <>
-            <form onSubmit={handleSubmit} style={{color: darkMode ? "white" : "black"}}> 
+            <form onSubmit={handleSubmit} style={{color: state.darkMode ? "white" : "black"}}> 
                 <fieldset>
                     <label>Name</label>
                     <input value={category} onChange={e => setCategory(e.target.value)} />

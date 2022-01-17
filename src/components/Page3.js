@@ -1,14 +1,16 @@
-import React from 'react'
+import React, {useContext} from 'react'
 import NewCategoryForm from './NewCategoryForm'
+import Context from '../context.js'
 
-const Page3 = ({darkMode, setDarkMode, categories, setCategories}) => {
+const Page3 = () => {
+    const {state, dispatch} = useContext(Context)
     return (
         <>
-            <div style={{color: darkMode? "white" : "black"}}>
+            <div style={{color: state.darkMode? "white" : "black"}}>
                 <h1>Page3</h1>
-                <p>lorem ipsum</p>
+                <p>New Category</p>
             </div>
-            <NewCategoryForm darkMode={darkMode} categories={categories} setCategories={setCategories}/>
+            <NewCategoryForm />
         </>
     )
 }
